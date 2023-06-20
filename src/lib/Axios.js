@@ -1,0 +1,9 @@
+import axios from "axios"
+
+// require('dotenv').config()
+
+export const Axios = axios.create({
+    baseURL: process.env.REACT_APP_BASE_URL
+})
+
+export default Axios;
