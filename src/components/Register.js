@@ -13,11 +13,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useSelector, useDispatch } from 'react-redux';
+import {registerUser} from '../components/redux/usersSlice';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 
 export default function Register() {
+
+  const users = useSelector( state => state.users)
+  const dispatch = useDispatch ()
 
   const [pwdMatch, setPwdMatch] = useState({
     error: false,
@@ -45,6 +50,8 @@ export default function Register() {
       error: false,
       message: ''
     })
+
+    dispatch(registerUser(userObj));
 
     console.log({
       email: data.get('email'),
