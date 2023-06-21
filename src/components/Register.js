@@ -40,16 +40,28 @@ export default function Register() {
       password: data.get('password')
     };
 
-    userObj.password !== data.get('password2') ? 
-    setPwdMatch ({
-      error:true,
-      message: 'Passwords not match'
-    })
-    :
-    setPwdMatch ({
-      error: false,
-      message: ''
-    })
+    // userObj.password !== data.get('password2') ? 
+    // setPwdMatch ({
+    //   error:true,
+    //   message: 'Passwords not match'
+    // })
+    // :
+    // setPwdMatch ({
+    //   error: false,
+    //   message: ''
+    // })
+
+    if (userObj.password !== data.get('password2')) {
+      setPwdMatch({
+        error: true,
+        message: "Passwords do not Match"
+      })
+    } else {
+      setPwdMatch ({
+        error: false,
+        message: ''
+      })
+    }
 
     dispatch(registerUser(userObj));
 
