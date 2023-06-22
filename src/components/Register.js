@@ -61,9 +61,9 @@ export default function Register() {
         error: false,
         message: ''
       })
+      dispatch(registerUser(userObj));
     }
 
-    dispatch(registerUser(userObj));
 
     console.log({
       email: data.get('email'),
